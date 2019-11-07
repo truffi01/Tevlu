@@ -3,4 +3,11 @@
 {% block content %}
 
 <h1>Page</h1>
+{% if user.is_authenticated %}
+  Welcome to Fantasy Board! {{ user.username }}!
+  <a href="{% url 'logout' %}">logout</a>
+{% else %}
+  <h6> Logged out </h6>
+  <a href="{% url 'login' %}">Login</a>
+{% endif %}
 {% endblock content %}
